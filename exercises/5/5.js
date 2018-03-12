@@ -14,6 +14,7 @@ const HelloWorld = props => {
 
 // TODO: fix `bunchOfProps` to get rid of the colour prop warning
 // add a proptype declaration for age and make sure it's a number
+// you can find more about proptypes here: https://reactjs.org/docs/typechecking-with-proptypes.html
 HelloWorld.propTypes = {
   name: PropTypes.string.isRequired,
   colour: PropTypes.oneOf(['blue', 'red']).isRequired,
