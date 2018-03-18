@@ -21,6 +21,7 @@ export default class UserInput extends Component {
     e.preventDefault()
     // todo: call this.props.onSearchInputChange with the right ID
     // so the parent knows that we have a new ID
+    this.props.onSearchInputChange(Number(this.state.userPostInput))
   }
 
   render() {
