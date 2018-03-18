@@ -45,6 +45,7 @@ class Counter extends Component {
   render() {
     // TODO: create another <Count /> component
     // that deals with this.state.count2
+    // and lets it be incremented
     return (
       <div>
         <Count

@@ -58,12 +58,11 @@ class Counter extends Component {
         />
       </div>
     )
+    // TODO: once you do the above TODO, you'll see a warning in your console
+    // where React tells you you're missing a key property. See if you can investigate...
   }
 }
 
-// TODO: make the counter component take a prop that configures the starting value
-// so I could do <Counter start={4} /> to start the counter at 4
-// remember to document it with prop types!
 const App = () => {
   return <Counter />
 }
