@@ -15,6 +15,8 @@ class PostSearch extends Component {
     this.setState({ searchId: id })
   }
 
+  // TODO: the exercises you're looking for are in the UserInput component :)
+
   render() {
     return (
       <div>
