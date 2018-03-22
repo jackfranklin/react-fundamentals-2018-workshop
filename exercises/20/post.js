@@ -8,7 +8,8 @@ export default class Post extends Component {
     // TODO: update the prop types so we take children or render
     // (you can't declare this explicitly, but you can declare two props that
     // are both not required)
-    children: PropTypes.func.isRequired,
+    children: PropTypes.func,
+    render: PropTypes.func,
   }
 
   state = {
@@ -37,8 +38,10 @@ export default class Post extends Component {
   }
 
   render() {
-    // TODO: don't assume this.props.children here
-    // and also see if we have this.props.render
-    return this.props.children(this.state.post)
+    const post = this.state.post
+
+    return this.props.children
+      ? this.props.children(post)
+      : this.props.render(post)
   }
 }

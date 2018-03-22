@@ -14,7 +14,7 @@ class Count extends Component {
     return (
       <div>
         <p>Count: {this.props.count}</p>
-        <button onClick={this.onButtonClick.bind(this)}>Increment</button>
+        <button onClick={this.props.onIncrement}>Increment</button>
       </div>
     )
   }
@@ -25,8 +25,8 @@ class Counter extends Component {
     super(props)
 
     this.state = {
-      count1: 0,
-      count2: 0,
+      count1: props.start,
+      count2: props.start,
     }
   }
 
@@ -52,16 +52,17 @@ class Counter extends Component {
           count={this.state.count1}
           onIncrement={this.incrementCount1.bind(this)}
         />
+        <Count
+          count={this.state.count2}
+          onIncrement={this.incrementCount2.bind(this)}
+        />
       </div>
     )
   }
 }
 
-// TODO: make the counter component take a prop that configures the starting value
-// so I could do <Counter start={4} /> to start the counter at 4
-// remember to document it with prop types!
 const App = () => {
-  return <Counter />
+  return <Counter start={4} />
 }
 
 ReactDOM.render(<App />, document.getElementById('react-root'))

@@ -33,10 +33,8 @@ export default class Post extends Component {
   }
 
   render() {
-    const { post } = this.state
     return React.Children.map(this.props.children, child => {
-      // TODO: update this function to return the child, but cloned and given the `post` prop
-      return child
+      return React.cloneElement(child, { post: this.state.post })
     })
   }
 }

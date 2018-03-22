@@ -9,18 +9,14 @@ const MakeThingsBlue = props => {
 }
 
 MakeThingsBlue.propTypes = {
-  // TODO: fill in the prop types
-  // you might need https://reactjs.org/docs/typechecking-with-proptypes.html
-  // to figure out what the proptype is
+  children: PropTypes.node.isRequired,
 }
 
-const App = () => {
-  // TODO: rewrite this function passing in the children prop explicitly
-  return (
-    <MakeThingsBlue>
-      <p>Hello world</p>
-    </MakeThingsBlue>
-  )
+const App = props => {
+  return <MakeThingsBlue>{props.children}</MakeThingsBlue>
 }
 
-ReactDOM.render(<App />, document.getElementById('react-root'))
+ReactDOM.render(
+  <App children={<p>Hello</p>} />,
+  document.getElementById('react-root')
+)

@@ -9,10 +9,15 @@ class Counter extends Component {
     super(props)
 
     this.state = {
-      count: 0,
+      count: props.start,
     }
   }
 
+  onButtonClickDecrement() {
+    this.setState(prevState => {
+      return { count: prevState.count - 1 }
+    })
+  }
   onButtonClickIncrement() {
     this.setState(prevState => {
       return { count: prevState.count + 1 }
@@ -23,6 +28,9 @@ class Counter extends Component {
     // TODO: add another button that decrements the count
     return (
       <div>
+        <button onClick={this.onButtonClickDecrement.bind(this)}>
+          Click to decrement
+        </button>
         <p>current count: {this.state.count}</p>
         <button onClick={this.onButtonClickIncrement.bind(this)}>
           Click to increment
@@ -32,11 +40,19 @@ class Counter extends Component {
   }
 }
 
+Counter.propTypes = {
+  start: PropTypes.number,
+}
+
+Counter.defaultProps = {
+  start: 0,
+}
+
 // TODO: make the counter component take a prop that configures the starting value
 // so I could do <Counter start={4} /> to start the counter at 4
 // remember to document it with prop types!
 const App = () => {
-  return <Counter />
+  return <Counter start={4} />
 }
 
 ReactDOM.render(<App />, document.getElementById('react-root'))

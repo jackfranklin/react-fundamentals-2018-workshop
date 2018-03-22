@@ -17,11 +17,15 @@ const HelloWorld = props => {
 // you can find more about proptypes here: https://reactjs.org/docs/typechecking-with-proptypes.html
 HelloWorld.propTypes = {
   name: PropTypes.string.isRequired,
-  colour: PropTypes.oneOf(['blue', 'red']).isRequired,
+  colour: PropTypes.oneOf(['blue', 'green', 'red']).isRequired,
+  age: PropTypes.number.isRequired,
+}
+
+HelloWorld.defaultProps = {
+  name: 'Jack',
 }
 
 const bunchOfProps = {
-  name: 'Jack',
   age: 25,
   colour: 'green',
 }
