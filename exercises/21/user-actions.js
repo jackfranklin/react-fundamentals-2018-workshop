@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import AuthContext from './auth-context'
 
 // TODO:
-// using <AuthContext.Provider>, hook this component up to the AuthContext
+// using <AuthContext.Consumer>, hook this component up to the AuthContext
 // and only allow the user to like a post if they are signed in.
 export default class UserActions extends Component {
   static propTypes = {
