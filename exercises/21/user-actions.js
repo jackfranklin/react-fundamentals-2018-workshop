@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import AuthContext from './auth-context'
 
@@ -19,11 +19,24 @@ export default class UserActions extends Component {
   render() {
     return (
       <div>
-        {/* TODO: can you disable the button if the user has liked the post?*/}
-        <button onClick={this.like} onClick={this.like}>
-          ❤
-        </button>
-        {this.state.liked && <span>You've liked this post!</span>}
+        <AuthContext.Consumer>
+          {signedIn => {
+            return signedIn ? (
+              <Fragment>
+                <button
+                  disabled={this.state.liked}
+                  onClick={this.like}
+                  onClick={this.like}
+                >
+                  ❤
+                </button>
+                {this.state.liked && <span>You've liked this post!</span>}
+              </Fragment>
+            ) : (
+              <span>you need to sign in to like things</span>
+            )
+          }}
+        </AuthContext.Consumer>
       </div>
     )
   }
